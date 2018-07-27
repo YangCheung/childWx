@@ -1,17 +1,25 @@
 <template>
-  <div>
-    <div class="swiper-tab">
-      <div class="swiper-tab-item" data-current="0" @click="clickTab">全部</div>
-      <div class="swiper-tab-item" data-current="1" @click="clickTab">周末酒店</div>
-      <div class="swiper-tab-item" data-current="2" @click="clickTab">ibuy亲子</div>
-    </div>
+  <div class="container">
     <div class="userinfo" @click="binddivTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data type="userNickName" lang="zh_CN"></open-data>
+      <!-- <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
         <card :text="userInfo.nickName"></card>
+      </div> -->
+    </div>
+
+    <!-- <div class="usermotto">
+      <div class="user-motto">
+        <card :text="motto"></card>
       </div>
     </div>
-    <a href="/pages/webview/main" class="counter">webview</a>
+
+    <form class="form-container">
+      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
+      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
+    </form>
+    <a href="/pages/counter/main" class="counter">往Vuex示例页面</a> -->
   </div>
 </template>
 
@@ -21,7 +29,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello Wosdfsdfsfdrld',
+      motto: 'Hello World',
       userInfo: {}
     }
   },

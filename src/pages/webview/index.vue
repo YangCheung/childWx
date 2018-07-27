@@ -1,17 +1,6 @@
 <template>
   <div>
-    <div class="swiper-tab">
-      <div class="swiper-tab-item" data-current="0" @click="clickTab">全部</div>
-      <div class="swiper-tab-item" data-current="1" @click="clickTab">周末酒店</div>
-      <div class="swiper-tab-item" data-current="2" @click="clickTab">ibuy亲子</div>
-    </div>
-    <div class="userinfo" @click="binddivTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-    <a href="/pages/webview/main" class="counter">webview</a>
+    <web-view src="https://assetdef.moboo.ly/887c812c-8dcb-11e8-85b5-6a0000f63720.html"></web-view>
   </div>
 </template>
 
