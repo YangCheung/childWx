@@ -43,8 +43,8 @@ export default {
       console.log(d)
     },
     binddivTap () {
-      const url = '../logs/main'
-      wx.navigateTo({ url })
+      const url = '/pages/counter/main'
+      wx.navigateTo({ url: url })
     },
     getUserInfo () {
       // 调用登录接口

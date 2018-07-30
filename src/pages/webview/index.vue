@@ -1,6 +1,6 @@
 <template>
   <div>
-    <web-view src="https://assetdef.moboo.ly/887c812c-8dcb-11e8-85b5-6a0000f63720.html"></web-view>
+    <!-- <web-view src="https://assetdef.moboo.ly/887c812c-8dcb-11e8-85b5-6a0000f63720.html"></web-view> -->
   </div>
 </template>
 

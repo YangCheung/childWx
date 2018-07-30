@@ -1,0 +1,33 @@
+{
+    "pages": [
+      "pages/index/main", 
+      "pages/counter/main",
+      "pages/content/main", 
+      "pages/user/main"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#5C6AFF",
+      "navigationBarTitleText": "少儿成长大全",
+      "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+      "color": "#999999",
+      "selectedColor": "#5C6AFF",
+      "backgroundColor": "#ffffff",
+      "borderStyle": "#5C6AFF",
+      "list": [{
+        "pagePath": "pages/index/main",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/content/main",
+        "text": "手工"
+      },
+      {
+        "pagePath": "pages/user/main",
+        "text": "我的"    
+      }
+      ]
+    }
+}
