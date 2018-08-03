@@ -5,12 +5,17 @@
       <div class="swiper-tab-item" data-current="1" @click="clickTab">周末酒店</div>
       <div class="swiper-tab-item" data-current="2" @click="clickTab">ibuy亲子</div>
     </div> -->
-    <!-- <div class="list-container"> -->
+    <div class="header-tab">
+       <ZanTab v-bind="tab1" :scroll="true"  @change="handleZanTabChange"/>
+    </div>
+    <div class="page-content">
       <div class="card" v-for="d in diys" :key="d.t" @click="goDiyContent(d.id)">
         <image class="img" :src="d.img" lazy-load="true" mode="aspectFill"/> 
         <div class="text">{{ d.t }}</div>
       </div>
-    <!-- </div> -->
+    </div>
+    
+
     <!-- <div class="userinfo" @click="binddivTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
@@ -24,19 +29,46 @@
 
 <script>
 import card from '@/components/card'
+import ZanTab from '@/components/zan/tab'
+
 // import AV from '@/leancloud/av-weapp-min.js'
 // const AV = require('@/leancloud/av-weapp.js')
 
 export default {
   data () {
     return {
+      tab1: {
+        height: 45,
+        list: [{
+          id: 'all',
+          title: '全部'
+        }, {
+          id: 'topay',
+          title: '小制作'
+        }, {
+          id: 'tosend',
+          title: '儿童画'
+        }, {
+          id: 'send',
+          title: '幼儿教案'
+        }, {
+          id: 'sign',
+          title: '亲子'
+        }, {
+          id: 'sign',
+          title: '故事会'
+        }],
+        scroll: false,
+        selectedId: 'all'
+      },
       motto: 'Hello Wosdfsdfsfdrld',
       userInfo: {},
       diys: []
     }
   },
   components: {
-    card
+    card,
+    ZanTab
   },
   computed: {
     // reversedMessage: function () {
@@ -63,6 +95,10 @@ export default {
     // }
   },
   methods: {
+    // ...ZanTab.methods,
+    handleZanTabChange: function (data) {
+      console.log(data)
+    },
     convertData: function (datas) {
       var robjs = []
       for (var i = 0; i < datas.length; i++) {
@@ -109,10 +145,10 @@ export default {
         .find()
         .then(function (data) {
           that.diys = that.convertData(data)
-          wx.stopPullDownRefresh()
+          // wx.stopPullDownRefresh()
         })
         .catch(function (error) {
-          wx.stopPullDownRefresh()
+          // wx.stopPullDownRefresh()
           console.error(error)
         })
     },
@@ -124,8 +160,8 @@ export default {
     this.getDiys()
   },
   mounted () {
-    // this.getDiys()
-    wx.startPullDownRefresh()
+    this.getDiys()
+    // wx.startPullDownRefresh()
   }
 }
 </script>
@@ -134,6 +170,14 @@ export default {
 .page{
   width: 100%;
   height: 100%;
+  margin: 0px
+}
+.header-tab {
+  position: fixed;
+  z-index: 100;
+}
+.pageContent {
+  padding-top: 60px
 }
 /* .list-container {
   display: flex;
